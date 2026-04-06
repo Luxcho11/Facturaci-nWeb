@@ -1,14 +1,9 @@
-// ============================================================
-// clientes.js — CRUD de clientes
-// Requisitos: 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9
-// ============================================================
+
 
 var modoEdicion   = false;
 var cedulaEditando = null;
 
-/**
- * Reconstruye el <tbody> de #tabla-clientes desde el array clientes[].
- */
+
 function renderClientes() {
   var tbody = $("#tabla-clientes tbody");
   tbody.empty();
@@ -42,17 +37,17 @@ function guardarCliente() {
   var cedula = $("#cli-cedula").val().trim();
   var nombre = $("#cli-nombre").val().trim();
 
-  // Limpiar mensajes previos
+  // Limpiar mensajes 
   $("#msg-clientes").html("");
 
-  // Validar campos vacíos
+  // Validar campos 
   if (cedula === "" || nombre === "") {
     $("#msg-clientes").html('<div class="alert alert-danger">El campo cédula y el campo nombre son obligatorios.</div>');
     return;
   }
 
   if (!modoEdicion) {
-    // Verificar cédula duplicada al agregar
+    // Verificar cédula duplicada 
     var existe = clientes.some(function (c) { return c.cedula === cedula; });
     if (existe) {
       $("#msg-clientes").html('<div class="alert alert-danger">La cédula ya está registrada.</div>');

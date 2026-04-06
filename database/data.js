@@ -4,7 +4,7 @@ var productos = [];
 var facturas  = [];
 var contadorFactura = 1;
 
-/** Persiste los arrays en localStorage */
+
 function guardarDatos() {
     localStorage.setItem('sf_clientes',  JSON.stringify(clientes));
     localStorage.setItem('sf_productos', JSON.stringify(productos));
